@@ -1,21 +1,7 @@
 import React, { useState } from 'react'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
-import Home from './screens/Home'
-import NewPerson from './screens/NewPerson'
+import { createAppContainer } from 'react-navigation'
 import PersonContext, { IPerson } from './PersonContext'
-
-const AppNavigator = createStackNavigator(
-  {
-    Home,
-    NewPerson
-  },
-  {
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      title: 'Stalker'
-    }
-  }
-)
+import AppNavigator from './AppNavigator'
 
 const AppContainer = createAppContainer(AppNavigator)
 
