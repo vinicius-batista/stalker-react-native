@@ -1,10 +1,25 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet, Button } from 'react-native'
+import { NavigationScreenProps } from 'react-navigation'
 
-function Home () {
+interface IProps {}
+
+function Home (props: NavigationScreenProps<IProps>) {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <View style={styles.button}>
+        <Button
+          title='NEW'
+          color='#2779BD'
+          onPress={() => props.navigation.navigate('NewPerson')}
+        />
+      </View>
+      <View style={styles.button}>
+        <Button
+          title='LIST'
+          onPress={() => props.navigation.navigate('People')}
+        />
+      </View>
     </View>
   )
 }
@@ -15,6 +30,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
+  },
+  button: {
+    width: 400,
+    height: 100
   }
 })
 
