@@ -1,11 +1,19 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "jsx": true
+  },
   "extends": ["standard", "standard-react"],
-  "plugins": [
-    "react-hooks",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react-hooks", "@typescript-eslint"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/explicit-member-accessibility": "error",
+    "@typescript-eslint/interface-name-prefix": ["error", "always"],
+    "@typescript-eslint/no-array-constructor": "error",
+    "@typescript-eslint/no-empty-interface": "error",
+    "react/prop-types": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/class-name-casing": "error"
   }
 }

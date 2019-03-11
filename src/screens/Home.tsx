@@ -2,9 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Button } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
 
-interface IProps {}
-
-function Home (props: NavigationScreenProps<IProps>) {
+function Home (props: NavigationScreenProps) {
   return (
     <View style={styles.container}>
       <View style={styles.button}>

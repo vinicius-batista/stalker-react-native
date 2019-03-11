@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Home from './screens/Home'
+import NewPerson from './screens/NewPerson'
+import PersonContext, { IPerson } from './PersonContext'
 
 const AppNavigator = createStackNavigator(
   {
-    Home
+    Home,
+    NewPerson
   },
   {
     initialRouteName: 'Home',
@@ -17,5 +20,15 @@ const AppNavigator = createStackNavigator(
 const AppContainer = createAppContainer(AppNavigator)
 
 export default function App () {
-  return <AppContainer />
+  const [people, setPeople] = useState<IPerson[]>([])
+
+  function addPerson (person: IPerson) {
+    setPeople([...people, person])
+  }
+
+  return (
+    <PersonContext.Provider value={{ people, addPerson }}>
+      <AppContainer />
+    </PersonContext.Provider>
+  )
 }

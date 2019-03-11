@@ -10,7 +10,7 @@
     "format": "prettier-eslint \"src/**/*.*(tsx|ts|js)\" --write"
   },
   "dependencies": {
-    "react": "16.6.3",
+    "react": "16.8.3",
     "react-native": "^0.59.0-rc.3",
     "react-native-gesture-handler": "^1.1.0",
     "react-navigation": "^3.3.2"
