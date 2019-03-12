@@ -1,26 +1,31 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { IPerson } from '../PersonContext'
 
 interface IProps {
   person: IPerson
+  pressPersonHandler: (person: IPerson) => boolean
 }
 
 function PersonResume (props: IProps) {
-  const { person } = props
+  const { person, pressPersonHandler } = props
 
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => pressPersonHandler(person)}
+    >
       <Text style={styles.name}>
         {`${person.firstName} ${person.lastName}`}
       </Text>
       <Text style={styles.age}>{`${person.age} years old`}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
   card: {
+    backgroundColor: '#ffffff',
     flex: 1,
     justifyContent: 'center',
     padding: 10,
