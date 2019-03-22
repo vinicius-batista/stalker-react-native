@@ -5,10 +5,10 @@ import AppNavigator from './AppNavigator'
 
 const AppContainer = createAppContainer(AppNavigator)
 
-export default function App () {
+export default function App() {
   const [people, setPeople] = useState<IPerson[]>([])
 
-  function addPerson (person: IPerson) {
+  function addPerson(person: IPerson) {
     setPeople([...people, person])
   }
 

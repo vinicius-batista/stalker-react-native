@@ -17,5 +17,5 @@ export interface IPersonContext {
 
 export default React.createContext<IPersonContext>({
   people: [],
-  addPerson: person => {}
+  addPerson: person => person
 })

@@ -2,17 +2,8 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 interface IProps {
-  fieldName: String
-  fieldValue: String | number
-}
-
-function PersonField (props: IProps) {
-  return (
-    <View style={styles.card}>
-      <Text style={styles.label}>{props.fieldName}</Text>
-      <Text style={styles.label}>{props.fieldValue}</Text>
-    </View>
-  )
+  fieldName: string
+  fieldValue: string | number
 }
 
 const styles = StyleSheet.create({
@@ -31,5 +22,14 @@ const styles = StyleSheet.create({
     padding: 5
   }
 })
+
+function PersonField(props: IProps) {
+  return (
+    <View style={styles.card}>
+      <Text style={styles.label}>{props.fieldName}</Text>
+      <Text style={styles.label}>{props.fieldValue}</Text>
+    </View>
+  )
+}
 
 export default PersonField

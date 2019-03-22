@@ -7,22 +7,6 @@ interface IProps {
   pressPersonHandler: (person: IPerson) => boolean
 }
 
-function PersonResume (props: IProps) {
-  const { person, pressPersonHandler } = props
-
-  return (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() => pressPersonHandler(person)}
-    >
-      <Text style={styles.name}>
-        {`${person.firstName} ${person.lastName}`}
-      </Text>
-      <Text style={styles.age}>{`${person.age} years old`}</Text>
-    </TouchableOpacity>
-  )
-}
-
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#ffffff',
@@ -47,5 +31,21 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 })
+
+function PersonResume(props: IProps) {
+  const { person, pressPersonHandler } = props
+
+  return (
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => pressPersonHandler(person)}
+    >
+      <Text style={styles.name}>
+        {`${person.firstName} ${person.lastName}`}
+      </Text>
+      <Text style={styles.age}>{`${person.age} years old`}</Text>
+    </TouchableOpacity>
+  )
+}
 
 export default PersonResume

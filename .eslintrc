@@ -4,14 +4,19 @@
   "parserOptions": {
     "jsx": true
   },
-  "extends": ["standard", "standard-react"],
-  "plugins": ["react-hooks", "@typescript-eslint"],
+  "extends": [
+    "react-app", 
+    "plugin:jsx-a11y/recommended", 
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["react-hooks", "@typescript-eslint", "jsx-a11y"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "@typescript-eslint/explicit-member-accessibility": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/interface-name-prefix": ["error", "always"],
-    "@typescript-eslint/no-array-constructor": "error",
-    "@typescript-eslint/no-empty-interface": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "react/prop-types": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/class-name-casing": "error"
