@@ -7,7 +7,7 @@
     "test": "jest",
     "tsc": "tsc",
     "lint": "eslint src/** --fix",
-    "format": "prettier-eslint \"src/**/*.*(tsx|ts|js)\" --write"
+    "format": "prettier \"src/**/*.*(tsx|ts|js)\" --write"
   },
   "dependencies": {
     "react": "16.8.3",
@@ -37,7 +37,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "0.53.0",
-    "prettier-eslint-cli": "^4.7.1",
+    "prettier-cli": "^0.1.0",
     "react-test-renderer": "^16.8.4",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"
@@ -47,7 +47,9 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testMatch": [ "**/__tests__/**/*.(jsx|tsx)" ],
+    "testMatch": [
+      "**/__tests__/**/*.(jsx|tsx)"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

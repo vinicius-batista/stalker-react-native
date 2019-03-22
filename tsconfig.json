@@ -4,6 +4,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
     "jsx": "react",
     "lib": ["es6"],
     "moduleResolution": "node",
