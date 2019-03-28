@@ -1,6 +1,6 @@
 {
   "name": "stalker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --max-old-space-size=4000",
