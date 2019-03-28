@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { createAppContainer } from 'react-navigation'
-import PersonContext, { IPerson } from './PersonContext'
+import PersonContext, { Person } from './PersonContext'
 import AppNavigator from './AppNavigator'
 
 const AppContainer = createAppContainer(AppNavigator)
 
 export default function App() {
-  const [people, setPeople] = useState<IPerson[]>([])
+  const [people, setPeople] = useState<Person[]>([])
 
-  function addPerson(person: IPerson) {
+  function addPerson(person: Person) {
     setPeople([...people, person])
   }
 

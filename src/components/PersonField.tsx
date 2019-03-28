@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-interface IProps {
+type Props = {
   fieldName: string
   fieldValue: string | number
 }
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function PersonField(props: IProps) {
+function PersonField(props: Props) {
   return (
     <View style={styles.card}>
       <Text style={styles.label}>{props.fieldName}</Text>

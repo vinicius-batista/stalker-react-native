@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { IPerson } from '../PersonContext'
+import { Person } from '../PersonContext'
 
-interface IProps {
-  person: IPerson
-  pressPersonHandler: (person: IPerson) => boolean
+type Props = {
+  person: Person
+  pressPersonHandler: (person: Person) => boolean
 }
 
 const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function PersonResume(props: IProps) {
+function PersonResume(props: Props) {
   const { person, pressPersonHandler } = props
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface IPerson {
+export type Person = {
   firstName: string
   lastName: string
   age: number
@@ -10,12 +10,12 @@ export interface IPerson {
   description: string
 }
 
-export interface IPersonContext {
-  people: IPerson[]
-  addPerson: (person: IPerson) => void
+export type PersonContext = {
+  people: Person[]
+  addPerson: (person: Person) => void
 }
 
-export default React.createContext<IPersonContext>({
+export default React.createContext<PersonContext>({
   people: [],
   addPerson: person => person
 })

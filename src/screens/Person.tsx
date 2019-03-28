@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
-import { IPerson } from '../PersonContext'
+import * as PersonContext from '../PersonContext'
 import PersonField from '../components/PersonField'
 
 const styles = StyleSheet.create({
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 })
 
 function Person(props: NavigationScreenProps) {
-  const person = props.navigation.getParam('person') as IPerson
+  const person = props.navigation.getParam('person') as PersonContext.Person
 
   return (
     <ScrollView style={styles.container}>
