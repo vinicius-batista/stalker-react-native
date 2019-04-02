@@ -1,7 +1,16 @@
 import React, { useState, useContext } from 'react'
-import { ScrollView, View, StyleSheet, TextInput, Button } from 'react-native'
+import {
+  ScrollView,
+  View,
+  StyleSheet,
+  TextInput,
+  Button,
+  Image
+} from 'react-native'
 import PersonContext from '../PersonContext'
 import { NavigationScreenProps } from 'react-navigation'
+import Camera from '../components/Camera'
+import { TakePictureResponse } from 'react-native-camera/types'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +26,12 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 400,
-    height: 100
+    height: 100,
+    marginTop: 4
+  },
+  imagePreview: {
+    width: 200,
+    height: 200
   }
 })
 
@@ -29,13 +43,20 @@ function NewPerson(props: NavigationScreenProps) {
     job: '',
     birthday: '',
     phone: '',
-    description: ''
+    description: '',
+    photo: ''
   })
 
   const Person = useContext(PersonContext)
+  const [isCameraVisible, setIsCameraVisible] = useState(false)
 
   const updateInput = (name: string) => (value: string) => {
     setInput({ ...input, [name]: value })
+  }
+
+  function takePictureHandler(response: TakePictureResponse) {
+    updateInput('photo')(response.uri)
+    setIsCameraVisible(false)
   }
 
   function onSave() {
@@ -43,7 +64,9 @@ function NewPerson(props: NavigationScreenProps) {
     props.navigation.goBack()
   }
 
-  return (
+  return isCameraVisible ? (
+    <Camera onTakePicture={takePictureHandler} />
+  ) : (
     <ScrollView contentContainerStyle={styles.container}>
       <TextInput
         style={styles.input}
@@ -80,6 +103,16 @@ function NewPerson(props: NavigationScreenProps) {
         placeholder="Description"
         onChangeText={updateInput('description')}
       />
+      {input.photo !== '' && (
+        <Image style={styles.imagePreview} source={{ uri: input.photo }} />
+      )}
+      <View style={styles.button}>
+        <Button
+          title="TAKE A PIC"
+          color="#2779BD"
+          onPress={() => setIsCameraVisible(true)}
+        />
+      </View>
       <View style={styles.button}>
         <Button title="SAVE" color="#2779BD" onPress={onSave} />
       </View>

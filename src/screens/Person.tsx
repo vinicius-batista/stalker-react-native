@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import { StyleSheet, ScrollView, Image } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
 import * as PersonContext from '../PersonContext'
 import PersonField from '../components/PersonField'
@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F5FCFF',
     padding: 10
+  },
+  imagePreview: {
+    width: 200,
+    height: 200,
+    margin: 5
   }
 })
 
@@ -23,6 +28,7 @@ function Person(props: NavigationScreenProps) {
       <PersonField fieldName="Birthday" fieldValue={person.birthday} />
       <PersonField fieldName="Phone" fieldValue={person.phone} />
       <PersonField fieldName="Description" fieldValue={person.description} />
+      <Image style={styles.imagePreview} source={{ uri: person.photo }} />
     </ScrollView>
   )
 }

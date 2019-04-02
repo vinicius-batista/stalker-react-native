@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { ScrollView, FlatList, StyleSheet } from 'react-native'
-import PersonContext, { IPerson } from '../PersonContext'
+import PersonContext, { Person } from '../PersonContext'
 import PersonResume from '../components/PersonResume'
 import { NavigationScreenProps } from 'react-navigation'
 
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 function People(props: NavigationScreenProps) {
   const Person = useContext(PersonContext)
 
-  const pressPersonHandler = (person: IPerson) =>
+  const pressPersonHandler = (person: Person) =>
     props.navigation.navigate('Person', {
       person
     })
