@@ -1,16 +1,10 @@
 import React, { useState, useContext } from 'react'
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TextInput,
-  Button,
-  Image
-} from 'react-native'
-import PersonContext from '../PersonContext'
+import { ScrollView, View, StyleSheet, TextInput, Button } from 'react-native'
+import PersonContext, { Person } from '../PersonContext'
 import { NavigationScreenProps } from 'react-navigation'
 import Camera from '../components/Camera'
 import { TakePictureResponse } from 'react-native-camera/types'
+import Gallery from '../components/Gallery'
 
 const styles = StyleSheet.create({
   container: {
@@ -28,15 +22,11 @@ const styles = StyleSheet.create({
     width: 400,
     height: 100,
     marginTop: 4
-  },
-  imagePreview: {
-    width: 200,
-    height: 200
   }
 })
 
 function NewPerson(props: NavigationScreenProps) {
-  const [input, setInput] = useState({
+  const [input, setInput] = useState<Person>({
     firstName: '',
     lastName: '',
     age: 0,
@@ -44,7 +34,7 @@ function NewPerson(props: NavigationScreenProps) {
     birthday: '',
     phone: '',
     description: '',
-    photo: ''
+    photos: []
   })
 
   const Person = useContext(PersonContext)
@@ -55,7 +45,7 @@ function NewPerson(props: NavigationScreenProps) {
   }
 
   function takePictureHandler(response: TakePictureResponse) {
-    updateInput('photo')(response.uri)
+    setInput({ ...input, photos: [...input.photos, response.uri] })
     setIsCameraVisible(false)
   }
 
@@ -103,9 +93,7 @@ function NewPerson(props: NavigationScreenProps) {
         placeholder="Description"
         onChangeText={updateInput('description')}
       />
-      {input.photo !== '' && (
-        <Image style={styles.imagePreview} source={{ uri: input.photo }} />
-      )}
+      <Gallery photos={input.photos} />
       <View style={styles.button}>
         <Button
           title="TAKE A PIC"

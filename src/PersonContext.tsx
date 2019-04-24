@@ -8,7 +8,7 @@ export type Person = {
   birthday: string
   phone: string
   description: string
-  photo: string
+  photos: string[]
 }
 
 export type PersonContext = {
